@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-05-02T12:47:12.000Z" itemprop="datePublished">2016-05-02</time>
-    更新日期:<time datetime="2016-05-02T13:51:20.294Z" itemprop="dateModified">2016-05-02</time>
+    更新日期:<time datetime="2016-05-02T14:19:08.933Z" itemprop="dateModified">2016-05-02</time>
     
   </p>
 </header>
@@ -85,7 +85,8 @@
 		
 		</div>
 		
-		<p>1.放在外部文件 优势:<br>    　　A.提高了js/css的复用性<br>    　　B.减少了页面体积<br>    　　C.提高了js/css的可维护性<br>    内部写法 优势:<br>    　　A.减少页面请求<br>    　　B.提高渲染速度<br>    写在页面内<br>    　　A.只是应用于一个页面<br>    　　B.不经常被访问到<br>    　　C.脚本和样式很少 几十行的情况<br>这两条 看情况而定<br>2.script写在底部 防止不先加载css而出现页面空白的情况<br>3 少写或者不写css 表达式 css Expression<br>4.使用cdn架构  花钱 提高速度<br>5.把css放在页面最上面 先加载页面<br>6.启用Gzip压缩<br>7.添加expires/cache-control头<br>8.减少http请求数<br>9.DNS查询要消耗20ms的时间  如果有大量的DNS查询 要消耗大量的时间 所以我们要采用缓存技术。<br>    　　A.IE浏览器DNS缓存时间大概是30Minutes ff/chrome大概60s<br>    　　B.缓存时间较长时,可以减少DNS的重复查找,节省时间.<br>            时间较短时,及时的检测网站服务器的变化,保证正确性.<br>    　　C.根据需要选择单域名或者多域名的方式。其中多域名指的是js/www/img分别存放在不同的域名下.<br>10.最小化js和css<br>    　　A.去除不必要的空格、格式符、注释符<br>    　　B.简写方法名和参数名来压缩js<br>11.避免重定向<br>    　　A.301是永久重定向 302是临时重定向.<br>        对于搜索引擎来说,网站使用301,搜索引擎引用新的地址,删除旧的地址.而302搜索引擎先找旧地址再找新地址。<br>    　　B.重定向使用户增加了HTTP的请求.<br>12.避免重复js脚本的引用<br>13.配置实体标签ETAG</p>
+		<p>1.放在外部文件 优势:<br>    　　A.提高了js/css的复用性<br>    　　B.减少了页面体积<br>    　　C.提高了js/css的可维护性<br>    内部写法 优势:<br>    　　A.减少页面请求<br>    　　B.提高渲染速度<br>    写在页面内<br>    　　A.只是应用于一个页面<br>    　　B.不经常被访问到<br>    　　C.脚本和样式很少 几十行的情况<br>这两条 看情况而定<br>2.script写在底部 防止不先加载css而出现页面空白的情况<br>3 少写或者不写css 表达式 css Expression<br>4.使用cdn架构  花钱 提高速度<br>5.把css放在页面最上面 先加载页面<br>6.启用Gzip压缩<br>7.添加expires/cache-control头<br>8.减少http请求数<br>9.DNS查询要消耗20ms的时间  如果有大量的DNS查询 要消耗大量的时间 所以我们要采用缓存技术。<br>    　　A.IE浏览器DNS缓存时间大概是30Minutes ff/chrome大概60s<br>    　　B.缓存时间较长时,可以减少DNS的重复查找,节省时间.<br>            时间较短时,及时的检测网站服务器的变化,保证正确性.<br>    　　C.根据需要选择单域名或者多域名的方式。其中多域名指的是js/www/img分别存放在不同的域名下.<br>10.最小化js和css<br>    　　A.去除不必要的空格、格式符、注释符<br>    　　B.简写方法名和参数名来压缩js<br>11.避免重定向<br>    　　A.301是永久重定向 302是临时重定向.<br>        对于搜索引擎来说,网站使用301,搜索引擎引用新的地址,删除旧的地址.而302搜索引擎先找旧地址再找新地址。<br>    　　B.重定向使用户增加了HTTP的请求.<br>12.避免重复js脚本的引用<br>13.配置实体标签ETAG<br>14.使Ajax缓存.Ajax具有分批加载和局部刷新的功能.<br>    　　A.通常Ajax有GET/POST.(POST是将表单内各个字段放在header内传送到URL中的,禁止缓存)</p>
+<p>－－－－－－－－－网站性能检测工具Yslow－－－－－－－－－－－－－－－－－－－－－－－</p>
   
 	</div>
 		<footer class="article-footer clearfix">
