@@ -9,7 +9,7 @@
     
     <meta name="author" content="justedream">
     
-    <meta name="description" content="title: 一些优化技巧1.放在外部文件 好处 复用性   减少了页面体积 提高了js/css的可维护性          内部写法 减少页面请求 提高渲染速度          写在页面内 A只是应用于一个页面 b 不经常被访问到 C 脚本和样式很少 几十行的情况这两条 看情况而定2.scrip">
+    <meta name="description" content="1.放在外部文件 优势:    　　A.提高了js/css的复用性    　　B.减少了页面体积    　　C.提高了js/css的可维护性    内部写法 优势:    　　A.减少页面请求    　　B.提高渲染速度    写在页面内    　　A.只是应用于一个页面    　　B.不经常被访问">
     
     
     
@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-05-02T12:47:12.000Z" itemprop="datePublished">2016-05-02</time>
-    更新日期:<time datetime="2016-05-02T13:13:02.551Z" itemprop="dateModified">2016-05-02</time>
+    更新日期:<time datetime="2016-05-02T13:51:20.294Z" itemprop="dateModified">2016-05-02</time>
     
   </p>
 </header>
@@ -82,15 +82,24 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-一些优化技巧"><span class="toc-number">1.</span> <span class="toc-text">title: 一些优化技巧</span></a></li></ol>
+		
 		</div>
 		
-		<hr>
-<h2 id="title-一些优化技巧"><a href="#title-一些优化技巧" class="headerlink" title="title: 一些优化技巧"></a>title: 一些优化技巧</h2><p>1.放在外部文件 好处 复用性   减少了页面体积 提高了js/css的可维护性<br>          内部写法 减少页面请求 提高渲染速度<br>          写在页面内 A只是应用于一个页面 b 不经常被访问到 C 脚本和样式很少 几十行的情况<br>这两条 看情况而定<br>2.script写在底部 防止不先加载css而出现页面空白的情况<br>3 少写或者不写css 表达式<br>4.使用cdn 架设 花钱 提高速度<br>5.把css放在页面最上面 先加载页面<br>6.启用Gzip压缩<br>7.添加expires/cache-control头<br>8.减少http请求数<br>9.DNS查询要消耗20ms的时间  如果有大量的DNS查询 要消耗大量的时间 所以我们要采用缓存技术。</p>
+		<p>1.放在外部文件 优势:<br>    　　A.提高了js/css的复用性<br>    　　B.减少了页面体积<br>    　　C.提高了js/css的可维护性<br>    内部写法 优势:<br>    　　A.减少页面请求<br>    　　B.提高渲染速度<br>    写在页面内<br>    　　A.只是应用于一个页面<br>    　　B.不经常被访问到<br>    　　C.脚本和样式很少 几十行的情况<br>这两条 看情况而定<br>2.script写在底部 防止不先加载css而出现页面空白的情况<br>3 少写或者不写css 表达式 css Expression<br>4.使用cdn架构  花钱 提高速度<br>5.把css放在页面最上面 先加载页面<br>6.启用Gzip压缩<br>7.添加expires/cache-control头<br>8.减少http请求数<br>9.DNS查询要消耗20ms的时间  如果有大量的DNS查询 要消耗大量的时间 所以我们要采用缓存技术。<br>    　　A.IE浏览器DNS缓存时间大概是30Minutes ff/chrome大概60s<br>    　　B.缓存时间较长时,可以减少DNS的重复查找,节省时间.<br>            时间较短时,及时的检测网站服务器的变化,保证正确性.<br>    　　C.根据需要选择单域名或者多域名的方式。其中多域名指的是js/www/img分别存放在不同的域名下.<br>10.最小化js和css<br>    　　A.去除不必要的空格、格式符、注释符<br>    　　B.简写方法名和参数名来压缩js<br>11.避免重定向<br>    　　A.301是永久重定向 302是临时重定向.<br>        对于搜索引擎来说,网站使用301,搜索引擎引用新的地址,删除旧的地址.而302搜索引擎先找旧地址再找新地址。<br>    　　B.重定向使用户增加了HTTP的请求.<br>12.避免重复js脚本的引用<br>13.配置实体标签ETAG</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/博客/">博客</a><a href="/tags/文章/">文章</a><a href="/tags/FE技巧/">FE技巧</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/blog/">blog</a>
+</div>
 
 
 
@@ -130,7 +139,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-一些优化技巧"><span class="toc-number">1.</span> <span class="toc-text">title: 一些优化技巧</span></a></li></ol>
+  
   </div>
 
 <div id="asidepart">
@@ -142,7 +151,7 @@
 	<p class="asidetitle">分类</p>
 		<ul>
 		
-			<li><a href="/categories/blog/" title="blog">blog<sup>1</sup></a></li>
+			<li><a href="/categories/blog/" title="blog">blog<sup>2</sup></a></li>
 		
 		</ul>
 </div>
@@ -153,9 +162,11 @@
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li>
+			<li><a href="/tags/FE技巧/" title="FE技巧">FE技巧<sup>1</sup></a></li>
 		
-			<li><a href="/tags/文章/" title="文章">文章<sup>1</sup></a></li>
+			<li><a href="/tags/博客/" title="博客">博客<sup>2</sup></a></li>
+		
+			<li><a href="/tags/文章/" title="文章">文章<sup>2</sup></a></li>
 		
 		</ul>
 </div>
