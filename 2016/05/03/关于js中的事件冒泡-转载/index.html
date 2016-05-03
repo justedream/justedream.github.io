@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>前端优化的一些技巧 | justedream</title>
+    <title>关于js中的事件冒泡--转载 | justedream</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="justedream">
     
-    <meta name="description" content="1.放在外部文件 优势:    　　A.提高了js/css的复用性    　　B.减少了页面体积    　　C.提高了js/css的可维护性    内部写法 优势:    　　A.减少页面请求    　　B.提高渲染速度    写在页面内    　　A.只是应用于一个页面    　　B.不经常被访问">
+    <meta name="description" content="阻止事件冒泡三种方式处理：
+什么是JS事件冒泡？：在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类">
     
     
     
@@ -65,15 +66,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/05/02/前端优化的一些技巧/" title="前端优化的一些技巧" itemprop="url">前端优化的一些技巧</a>
+      <a href="/2016/05/03/关于js中的事件冒泡-转载/" title="关于js中的事件冒泡--转载" itemprop="url">关于js中的事件冒泡--转载</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://github.com/justedream" title="justedream">justedream</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-05-02T12:44:59.981Z" itemprop="datePublished">2016-05-02</time>
-    更新日期:<time datetime="2016-05-02T14:53:41.666Z" itemprop="dateModified">2016-05-02</time>
+    <time datetime="2016-05-03T05:29:53.000Z" itemprop="datePublished">2016-05-03</time>
+    更新日期:<time datetime="2016-05-03T05:36:46.683Z" itemprop="dateModified">2016-05-03</time>
     
   </p>
 </header>
@@ -85,28 +86,41 @@
 		
 		</div>
 		
-		<p>1.放在外部文件 优势:<br>    　　A.提高了js/css的复用性<br>    　　B.减少了页面体积<br>    　　C.提高了js/css的可维护性<br>    内部写法 优势:<br>    　　A.减少页面请求<br>    　　B.提高渲染速度<br>    写在页面内<br>    　　A.只是应用于一个页面<br>    　　B.不经常被访问到<br>    　　C.脚本和样式很少 几十行的情况<br>这两条 看情况而定<br>2.script写在底部 防止不先加载css而出现页面空白的情况<br>3 少写或者不写css 表达式 css Expression<br>4.使用cdn架构  花钱 提高速度<br>5.把css放在页面最上面 先加载页面<br>6.启用Gzip压缩<br>7.添加expires/cache-control头<br>8.减少http请求数<br>9.DNS查询要消耗20ms的时间  如果有大量的DNS查询 要消耗大量的时间 所以我们要采用缓存技术。<br>    　　A.IE浏览器DNS缓存时间大概是30Minutes ff/chrome大概60s<br>    　　B.缓存时间较长时,可以减少DNS的重复查找,节省时间.<br>            时间较短时,及时的检测网站服务器的变化,保证正确性.<br>    　　C.根据需要选择单域名或者多域名的方式。其中多域名指的是js/www/img分别存放在不同的域名下.<br>10.最小化js和css<br>    　　A.去除不必要的空格、格式符、注释符<br>    　　B.简写方法名和参数名来压缩js<br>11.避免重定向<br>    　　A.301是永久重定向 302是临时重定向.<br>        对于搜索引擎来说,网站使用301,搜索引擎引用新的地址,删除旧的地址.而302搜索引擎先找旧地址再找新地址。<br>    　　B.重定向使用户增加了HTTP的请求.<br>12.避免重复js脚本的引用<br>13.配置实体标签ETAG<br>14.使Ajax缓存.Ajax具有分批加载和局部刷新的功能.<br>    　　A.通常Ajax有GET/POST.(POST是将表单内各个字段放在header内传送到URL中的,禁止缓存)</p>
-<p>－－－－－－－－－网站性能检测工具Yslow－－－－－－－－－－－－－－－－－－－－－－－</p>
-  
+		<p>阻止事件冒泡三种方式处理：</p>
+<p>什么是JS事件冒泡？：<br>在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类事件都将被激活），或者它到达了对象层次的最顶层，即document对象（有些浏览器是window）。<br>如何来阻止Jquery事件冒泡？</p>
+<p>通过一个小例子来解释<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html xmlns=<span class="string">"http://www.w3.org/1999/xhtml"</span>&gt;</span><br><span class="line">&lt;head runat=<span class="string">"server"</span>&gt;</span><br><span class="line">&lt;title&gt;Porschev---Jquery 事件冒泡&lt;/title&gt;</span><br><span class="line">&lt;script src=<span class="string">"jquery-1.3.2-vsdoc.js"</span> <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;form id=<span class="string">"form1"</span> runat=<span class="string">"server"</span>&gt;</span><br><span class="line">&lt;div id=<span class="string">"divOne"</span> onclick=<span class="string">"alert('我是最外层');"</span>&gt;</span><br><span class="line">&lt;div id=<span class="string">"divTwo"</span> onclick=<span class="string">"alert('我是中间层！')"</span>&gt;</span><br><span class="line">&lt;a id=<span class="string">"hr_three"</span> href=<span class="string">"http://www.baidu.com"</span> mce_href=<span class="string">"http://www.baidu.com"</span>onclick=<span class="string">"alert('我是最里层！')"</span>&gt;点击我&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>比如上面这个页面，<br>分为三层：divOne是第外层，divTwo中间层，hr_three是最里层;<br>他们都有各自的click事件，最里层a标签还有href属性。</p>
+<p>运行页面，点击“点击我”,会依次弹出：我是最里层—-&gt;我是中间层—-&gt;我是最外层<br>—-&gt;然后再链接到百度.</p>
+<p>这就是事件冒泡，本来我只点击ID为hr_three的标签，但是确执行了三个alert操作。<br>事件冒泡过程（以标签ID表示）：hr_three—-&gt; divTwo—-&gt; divOne 。从最里层冒泡到最外层。</p>
+<p>如何来阻止?</p>
+<p>1.event.stopPropagation();<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    $(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        $(<span class="string">"#hr_three"</span>).click(<span class="keyword">function</span>(event) &#123;</span><br><span class="line">            event.stopPropagation();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>再点击“点击我”，会弹出：我是最里层，然后链接到百度</p>
+<p>2.return false;<br>如果头部加入的是以下代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    $(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        $(<span class="string">"#hr_three"</span>).click(<span class="keyword">function</span>(event) &#123;</span><br><span class="line">            <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>再点击“点击我”，会弹出：我是最里层，但不会执行链接到百度页面</p>
+<p>由此可以看出：<br>1.event.stopPropagation();<br>   事件处理过程中，阻止了事件冒泡，但不会阻击默认行为（它就执行了超链接的跳转）</p>
+<p>2.return false;<br>   事件处理过程中，阻止了事件冒泡，也阻止了默认行为（比如刚才它就没有执行超链接的跳转）</p>
+<p>还有一种有冒泡有关的：<br>3.event.preventDefault();<br>   如果把它放在头部A标签的click事件中，点击“点击我”。<br>   会发现它依次弹出：我是最里层—-&gt;我是中间层—-&gt;我是最外层，但最后却没有跳转到百度</p>
+<pre><code>它的作用是：事件处理过程中，不阻击事件冒泡，但阻击默认行为（它只执行所有弹框，却没有执行超链接跳转）
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/博客/">博客</a><a href="/tags/文章/">文章</a><a href="/tags/FE技巧/">FE技巧</a>
+  <span></span> <a href="/tags/EventBubbling/">EventBubbling</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/blog/">blog</a>
+  <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://github.com/justedream/2016/05/02/前端优化的一些技巧/" data-title="前端优化的一些技巧 | justedream" data-tsina="null" class="share clearfix">
+  <div data-url="http://github.com/justedream/2016/05/03/关于js中的事件冒泡-转载/" data-title="关于js中的事件冒泡--转载 | justedream" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -115,19 +129,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/05/03/一些常用的算法与数据结构列表/" title="一些常用的算法与数据结构列表">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  一些常用的算法与数据结构列表</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/05/02/hello-world/"  title="Hello World">
+<a href="/2016/05/03/一些常用的算法与数据结构列表/"  title="一些常用的算法与数据结构列表">
  <strong>NEXT:</strong><br/> 
- <span>Hello World
+ <span>一些常用的算法与数据结构列表
 </span>
 </a>
 </div>
