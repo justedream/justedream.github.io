@@ -72,7 +72,7 @@
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -205,46 +205,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^[\\u4e00-\\u9fa5]{0,}$</span><br></pre></td></tr></table></figure>
 <p>3.&#x7531;&#x6570;&#x5B57;&#x3001;26&#x4E2A;&#x82F1;&#x6587;&#x5B57;&#x6BCD;&#x6216;&#x4E0B;&#x5212;&#x7EBF;&#x7EC4;&#x6210;&#x7684;&#x5B57;&#x7B26;&#x4E32;</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^\\w+$</span><br></pre></td></tr></table></figure>
-<p>4.&#x6821;&#x9A8C;E-Mail &#x5730;&#x5740;<br>&#x540C;&#x5BC6;&#x7801;&#x4E00;&#x6837;&#xFF0C;&#x4E0B;&#x9762;&#x662F;E-mail&#x5730;&#x5740;&#x5408;&#x89C4;&#x6027;&#x7684;&#x6B63;&#x5219;&#x68C0;&#x67E5;&#x8BED;&#x53E5;&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[\\w!<span class="comment">#$%&amp;&apos;*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&amp;&apos;*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?</span></span><br></pre></td></tr></table></figure>
-<p>5.&#x6821;&#x9A8C;&#x8EAB;&#x4EFD;&#x8BC1;&#x53F7;&#x7801;</p>
-<p>&#x4E0B;&#x9762;&#x662F;&#x8EAB;&#x4EFD;&#x8BC1;&#x53F7;&#x7801;&#x7684;&#x6B63;&#x5219;&#x6821;&#x9A8C;&#x3002;15 &#x6216; 18&#x4F4D;&#x3002;</p>
-<p>15&#x4F4D;&#xFF1A;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$</span><br></pre></td></tr></table></figure>
-<p>18&#x4F4D;&#xFF1A;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X)$</span><br></pre></td></tr></table></figure>
-<p>6.&#x6821;&#x9A8C;&#x65E5;&#x671F;<br>&#x201C;yyyy-mm-dd&#x201C; &#x683C;&#x5F0F;&#x7684;&#x65E5;&#x671F;&#x6821;&#x9A8C;&#xFF0C;&#x5DF2;&#x8003;&#x8651;&#x5E73;&#x95F0;&#x5E74;&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$</span><br></pre></td></tr></table></figure>
-<p>7.&#x6821;&#x9A8C;&#x91D1;&#x989D;<br>&#x91D1;&#x989D;&#x6821;&#x9A8C;&#xFF0C;&#x7CBE;&#x786E;&#x5230;2&#x4F4D;&#x5C0F;&#x6570;&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^[0-9]+(.[0-9]{2})?$</span><br></pre></td></tr></table></figure>
-<p>8.&#x6821;&#x9A8C;&#x624B;&#x673A;&#x53F7;<br>&#x4E0B;&#x9762;&#x662F;&#x56FD;&#x5185; 13&#x3001;15&#x3001;18&#x5F00;&#x5934;&#x7684;&#x624B;&#x673A;&#x53F7;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$</span><br></pre></td></tr></table></figure>
-<p>9.&#x5224;&#x65AD;IE&#x7684;&#x7248;&#x672C;<br>IE&#x76EE;&#x524D;&#x8FD8;&#x6CA1;&#x88AB;&#x5B8C;&#x5168;&#x53D6;&#x4EE3;&#xFF0C;&#x5F88;&#x591A;&#x9875;&#x9762;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x505A;&#x7248;&#x672C;&#x517C;&#x5BB9;&#xFF0C;&#x4E0B;&#x9762;&#x662F;IE&#x7248;&#x672C;&#x68C0;&#x67E5;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^.*MSIE [5-8](?:\\.[0-9]+)?(?!.*Trident\\/[5-9]\\.0).*$</span><br></pre></td></tr></table></figure>
-<p>10.&#x6821;&#x9A8C;IP-v4&#x5730;&#x5740;<br>IP4 &#x6B63;&#x5219;&#x8BED;&#x53E5;&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b</span><br></pre></td></tr></table></figure>
-<p>11.&#x6821;&#x9A8C;IP-v6&#x5730;&#x5740;<br>IP6 &#x6B63;&#x5219;&#x8BED;&#x53E5;&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(([0-9a<span class="_">-f</span>A-F]{1,4}:){7,7}[0-9a<span class="_">-f</span>A-F]{1,4}|([0-9a<span class="_">-f</span>A-F]{1,4}:){1,7}:|([0-9a<span class="_">-f</span>A-F]{1,4}:){1,6}:[0-9a<span class="_">-f</span>A-F]{1,4}|([0-9a<span class="_">-f</span>A-F]{1,4}:){1,5}(:[0-9a<span class="_">-f</span>A-F]{1,4}){1,2}|([0-9a<span class="_">-f</span>A-F]{1,4}:){1,4}(:[0-9a<span class="_">-f</span>A-F]{1,4}){1,3}|([0-9a<span class="_">-f</span>A-F]{1,4}:){1,3}(:[0-9a<span class="_">-f</span>A-F]{1,4}){1,4}|([0-9a<span class="_">-f</span>A-F]{1,4}:){1,2}(:[0-9a<span class="_">-f</span>A-F]{1,4}){1,5}|[0-9a<span class="_">-f</span>A-F]{1,4}:((:[0-9a<span class="_">-f</span>A-F]{1,4}){1,6})|:((:[0-9a<span class="_">-f</span>A-F]{1,4}){1,7}|:)|fe80:(:[0-9a<span class="_">-f</span>A-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a<span class="_">-f</span>A-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))</span><br></pre></td></tr></table></figure>
-<p>12.&#x68C0;&#x67E5;URL&#x7684;&#x524D;&#x7F00;<br>&#x5E94;&#x7528;&#x5F00;&#x53D1;&#x4E2D;&#x5F88;&#x591A;&#x65F6;&#x5019;&#x9700;&#x8981;&#x533A;&#x5206;&#x8BF7;&#x6C42;&#x662F;HTTPS&#x8FD8;&#x662F;HTTP&#xFF0C;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x53EF;&#x4EE5;&#x53D6;&#x51FA;&#x4E00;&#x4E2A;url&#x7684;&#x524D;&#x7F00;&#x7136;&#x540E;&#x518D;&#x903B;&#x8F91;&#x5224;&#x65AD;&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!s.match(/^[a-zA-Z]+:\\/\\//))</span><br><span class="line">{</span><br><span class="line">    s = <span class="string">&apos;http://&apos;</span> + s;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>13.&#x63D0;&#x53D6;URL&#x94FE;&#x63A5;<br>&#x4E0B;&#x9762;&#x7684;&#x8FD9;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x53EF;&#x4EE5;&#x7B5B;&#x9009;&#x51FA;&#x4E00;&#x6BB5;&#x6587;&#x672C;&#x4E2D;&#x7684;URL&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^(f|ht){1}(tp|tps):\\/\\/([\\w-]+\\.)+[\\w-]+(\\/[\\w- ./?%&amp;=]*)?</span><br></pre></td></tr></table></figure>
-<p>14.&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x53CA;&#x6269;&#x5C55;&#x540D;&#x6821;&#x9A8C;<br>&#x9A8C;&#x8BC1;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x548C;&#x6269;&#x5C55;&#x540D;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^([a-zA-Z]\\:|\\\\)\\\\([^\\\\]+\\\\)*[^\\/:*?<span class="string">&quot;&lt;&gt;|]+\\.txt(l)?$</span></span><br></pre></td></tr></table></figure>
-<p>15.&#x63D0;&#x53D6;Color Hex Codes<br>&#x6709;&#x65F6;&#x9700;&#x8981;&#x62BD;&#x53D6;&#x7F51;&#x9875;&#x4E2D;&#x7684;&#x989C;&#x8272;&#x4EE3;&#x7801;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\<span class="comment">#([a-fA-F]|[0-9]){3,6}</span></span><br></pre></td></tr></table></figure>
-<p>16.&#x63D0;&#x53D6;&#x7F51;&#x9875;&#x56FE;&#x7247;<br>&#x5047;&#x82E5;&#x4F60;&#x60F3;&#x63D0;&#x53D6;&#x7F51;&#x9875;&#x4E2D;&#x6240;&#x6709;&#x56FE;&#x7247;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\&lt; *[img][^\\&gt;]*[src] *= *[\\<span class="string">&quot;\\&apos;]{0,1}([^\\&quot;</span>\\<span class="string">&apos;\\ &gt;]*)</span></span><br></pre></td></tr></table></figure>
-<p>17.&#x63D0;&#x53D6;&#x9875;&#x9762;&#x8D85;&#x94FE;&#x63A5;<br>&#x63D0;&#x53D6;html&#x4E2D;&#x7684;&#x8D85;&#x94FE;&#x63A5;&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(&lt;a\\s*(?!.*\\brel=)[^&gt;]*)(href=<span class="string">&quot;https?://)((?!(?:(?:www\\.)?&apos;.implode(&apos;|(?:www\\.)?&apos;, <span class="variable">$follow_list</span>).&apos;))[^&quot;</span>]+)<span class="string">&quot;((?!.*\\brel=)[^&gt;]*)(?:[^&gt;]*)&gt;</span></span><br></pre></td></tr></table></figure>
-<p>18.&#x7CBE;&#x70BC;CSS<br>&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x641C;&#x7D22;&#x76F8;&#x540C;&#x5C5E;&#x6027;&#x503C;&#x7684;CSS&#xFF0C;&#x4ECE;&#x800C;&#x8FBE;&#x5230;&#x7CBE;&#x70BC;&#x4EE3;&#x7801;&#x7684;&#x76EE;&#x7684;&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^\\s*[a-zA-Z\\-]+\\s*[:]{1}\\s[a-zA-Z0-9\\s.<span class="comment">#]+[;]{1}</span></span><br></pre></td></tr></table></figure>
-<p>19.&#x62BD;&#x53D6;&#x6CE8;&#x91CA;<br>&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x79FB;&#x9664;HMTL&#x4E2D;&#x7684;&#x6CE8;&#x91CA;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--(.*?)--&gt;</span><br></pre></td></tr></table></figure>
-<p>20.&#x5339;&#x914D;HTML&#x6807;&#x7B7E;</p>
-<p>&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x53EF;&#x4EE5;&#x5339;&#x914D;&#x51FA;HTML&#x4E2D;&#x7684;&#x6807;&#x7B7E;&#x3002;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;/?\\w+((\\s+\\w+(\\s*=\\s*(?:<span class="string">&quot;.*?&quot;</span>|<span class="string">&apos;.*?&apos;</span>|[\\^<span class="string">&apos;&quot;&gt;\\s]+))?)+\\s*|\\s*)/?&gt;</span></span><br></pre></td></tr></table></figure>
-
       
     </div>
     
@@ -261,6 +221,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/06/前端常用的正则表达式总结/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
