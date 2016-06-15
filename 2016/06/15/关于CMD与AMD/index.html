@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>关于CMD与AMD | justedream</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x5E73;&amp;#x65F6;&amp;#x5DE5;&amp;#x4F5C;&amp;#x4E2D;&amp;#x5904;&amp;#x7406;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#x4E3B;&amp;#x8981;&amp;#x6709;&amp;#x4E24;&amp;#x79CD;&amp;#xFF1A;12345678910111213141516171819202122//1.&amp;#x5C01;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于CMD与AMD">
+<meta property="og:url" content="http://github.com/justedream/2016/06/15/关于CMD与AMD/index.html">
+<meta property="og:site_name" content="justedream">
+<meta property="og:description" content="&amp;#x5E73;&amp;#x65F6;&amp;#x5DE5;&amp;#x4F5C;&amp;#x4E2D;&amp;#x5904;&amp;#x7406;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#x4E3B;&amp;#x8981;&amp;#x6709;&amp;#x4E24;&amp;#x79CD;&amp;#xFF1A;12345678910111213141516171819202122//1.&amp;#x5C01;&amp;">
+<meta property="og:updated_time" content="2016-06-15T02:52:02.679Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于CMD与AMD">
+<meta name="twitter:description" content="&amp;#x5E73;&amp;#x65F6;&amp;#x5DE5;&amp;#x4F5C;&amp;#x4E2D;&amp;#x5904;&amp;#x7406;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#x4E3B;&amp;#x8981;&amp;#x6709;&amp;#x4E24;&amp;#x79CD;&amp;#xFF1A;12345678910111213141516171819202122//1.&amp;#x5C01;&amp;">
+  
+    <link rel="alternative" href="/atom.xml" title="justedream" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://p3.fx.kgimg.com/v2/fxuserlogo/T1vsEsBjLQ1RCvBVdK.jpg_200x200.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">justedream</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">竹杖芒鞋轻胜马</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/justedream" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="javascript:;" title="rss">rss</a>
+					        
+								<a class="google" target="_blank" href="javascript:;" title="google">google</a>
+					        
+								<a class="twitter" target="_blank" href="javascript:;" title="twitter">twitter</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Arithmetic-DataStructure/" style="font-size: 10px;">Arithmetic DataStructure</a> <a href="/tags/EventBubbling/" style="font-size: 10px;">EventBubbling</a> <a href="/tags/FE技巧/" style="font-size: 10px;">FE技巧</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/ajax跨域/" style="font-size: 10px;">ajax跨域</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/文章/" style="font-size: 10px;">文章</a> <a href="/tags/架构/" style="font-size: 10px;">架构</a> <a href="/tags/电商/" style="font-size: 10px;">电商</a> <a href="/tags/网站资源/" style="font-size: 10px;">网站资源</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">毕业于重庆邮电大学，目前是一名前端开发工程师，擅长JavaScript、HTML5/CSS3。专注前端，略懂后端。Linux和JavaScript爱好者。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">justedream</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://p3.fx.kgimg.com/v2/fxuserlogo/T1vsEsBjLQ1RCvBVdK.jpg_200x200.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">justedream</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">竹杖芒鞋轻胜马</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/justedream" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="javascript:;" title="rss">rss</a>
+			        
+						<a class="google" target="_blank" href="javascript:;" title="google">google</a>
+			        
+						<a class="twitter" target="_blank" href="javascript:;" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-关于CMD与AMD" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于CMD与AMD
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x5E73;&#x65F6;&#x5DE5;&#x4F5C;&#x4E2D;&#x5904;&#x7406;&#x6A21;&#x5757;&#x5316;&#x7684;&#x65B9;&#x5F0F;&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x79CD;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//1.&#x5C01;&#x95ED;&#x7A7A;&#x95F4;&#xFF0C;&#x4E5F;&#x53EB;&#x533F;&#x540D;&#x51FD;&#x6570;&#x81EA;&#x6267;&#x884C;&#x6216;&#x8005;IIFE</span><br><span class="line">(<span class="function"><span class="title">function</span></span>(){</span><br><span class="line">    var gf = <span class="string">&apos;ada wong&apos;</span>;</span><br><span class="line">})();</span><br><span class="line">alert(gf);</span><br><span class="line"></span><br><span class="line">//2.&#x7C7B;&#x4F3C;jquery&#x65B9;&#x5F0F;&#xFF0C;&#x5168;&#x5C40;&#x5BFC;&#x5165;</span><br><span class="line">var gf = {};</span><br><span class="line">(<span class="keyword">function</span>(myGirl){</span><br><span class="line">    myGirl.name = <span class="string">&apos;ada wong&apos;</span>;</span><br><span class="line">    var kiss = <span class="function"><span class="title">function</span></span>(){</span><br><span class="line">        alert(<span class="string">&apos;kiss me&apos;</span>);</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    myGirl.getName = <span class="function"><span class="title">function</span></span>(){</span><br><span class="line">        <span class="built_in">return</span> myGirl.name;</span><br><span class="line">    };</span><br><span class="line">    <span class="built_in">return</span> myGirl;</span><br><span class="line">})(gf);</span><br><span class="line"></span><br><span class="line">alert(gf.getName());</span><br><span class="line">alert(gf.kiss());//&#x53EA;&#x6709;&#x81EA;&#x5DF1;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x7684;kiss&#x65B9;&#x6CD5;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>&#x4EE5;&#x4E0A;&#x6A21;&#x5757;&#x5316;&#x7684;&#x601D;&#x60F3;&#x8F83;&#x4E3A;&#x5E38;&#x7528;&#x3002;&#x4F46;&#x662F;:<br>1.&#x4F9D;&#x7136;&#x5B58;&#x5728;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x6C61;&#x67D3;&#xFF0C;&#x5C31;&#x662F;&#x4F9D;&#x7136;&#x53EF;&#x80FD;&#x91CD;&#x540D;&#xFF0C;&#x5F00;&#x53D1;&#x7684;&#x4EBA;&#x591A;&#x4E86; &#x90FD;var gf = &#x4E00;&#x70B9;&#x90FD;&#x4E0D;&#x7A00;&#x5947;&#x3002;<br>2.&#x867D;&#x7136;&#x6A21;&#x5757;&#x5316;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;&#x89E3;&#x51B3;&#x5404;&#x4E2A;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x4F9D;&#x8D56;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x90A3;CMD&#x548C;AMD&#x53C8;&#x662F;&#x5565;&#xFF1F;<br>&#x4E0D;&#x89E3;&#x91CA;&#x5B9A;&#x4E49;&#xFF0C;&#x4E0A;&#x4EE3;&#x7801;&#xFF0C;&#x7B80;&#x5355;&#x7684;&#x8BF4;&#x53BB;&#x73A9;&#x73A9;nodejs&#xFF0C;&#x91CC;&#x9762;&#x4EE3;&#x7801;&#x7684;&#x98CE;&#x683C;&#x90FD;&#x7279;&#x4E48;&#x662F;CMD.&#x4E0D;&#x4E3E;&#x4F8B;&#x5B50;&#x4E86;&#xFF0C;&#x8FD9;&#x4E2A;&#x5728;nodejs&#x6216;&#x8005;seajs&#x90FD;&#x6709;&#x6240;&#x4F53;&#x73B0;&#x3002;<br>&#x4E0B;&#x9762;&#x662F;&#x4ED6;&#x4EEC;&#x7684;&#x4E00;&#x4E9B;&#x7279;&#x70B9;&#xFF1A;<br>CMD &#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x975E;&#x5E38;&#x9002;&#x5408;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#xFF0C;&#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x786C;&#x76D8;&#x901F;&#x5EA6;&#x55D6;&#x55D6;&#x7684;&#xFF0C;&#x5565;&#x53EB;&#x540C;&#x6B65;?<br>&#x4E00;&#x4EF6;&#x4E8B;&#x6CA1;&#x505A;&#x5B8C;&#x540E;&#x9762;&#x7684;&#x4E8B;&#x513F;&#x505A;&#x4E0D;&#x4E86;&#x8FD9;&#x5C31;&#x662F;&#x540C;&#x6B65;&#x3002;</p>
+<p>AMD&#x662F;&#x5565; RequireJS&#x5C31;&#x662F;&#x4E00;&#x4E2A;AMD&#x7684;&#x6A21;&#x5757;&#x5316;&#x5DE5;&#x5177;&#x3002;AMD&#x8FD9;&#x91CC;&#x8BF4;&#x7684;&#x4E0D;&#x662F;CPU&#x800C;&#x662F;&#x5F02;&#x6B65;&#x7684;&#x610F;&#x601D;&#x3002;</p>
+<p>&#x4E24;&#x8005;&#x533A;&#x522B; &#xFF0C;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x901F;&#x5EA6;&#x55D6;&#x55D6;&#x7684;&#x540C;&#x6B65;&#x6CA1;&#x95EE;&#x9898;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x7F51;&#x7EDC;&#x72B6;&#x51B5;&#x53EF;&#x80FD;&#x5F88;&#x5DEE;&#x6240;&#x4EE5;&#x7528;&#x5F02;&#x6B65;&#xFF0C;&#x4E2A;&#x4EBA;&#x559C;&#x6B22;&#x540C;&#x6B65;&#x3002;<br>&#x5176;&#x5B9E;&#x8FD8;&#x6709;UMD&#x8FD9;&#x79CD;&#x6982;&#x5FF5;&#x3002;&#x76F4;&#x63A5;&#x4E0A;&#x4EE3;&#x7801;&#xFF0C;jQuery &#x652F;&#x6301;&#x7684;UMD<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> (root, factory) {</span><br><span class="line">    <span class="keyword">if</span> (typeof define === <span class="string">&apos;function&apos;</span> &amp;&amp; define.amd) {</span><br><span class="line">        // AMD</span><br><span class="line">        define([<span class="string">&apos;jquery&apos;</span>], factory);</span><br><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (typeof exports === <span class="string">&apos;object&apos;</span>) {</span><br><span class="line">        // Node, CommonJS-like</span><br><span class="line">        module.exports = factory(require(<span class="string">&apos;jquery&apos;</span>));</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        // Browser globals (root is window)</span><br><span class="line">        root.returnExports = factory(root.jQuery);</span><br><span class="line">    }</span><br><span class="line">}(this, <span class="keyword">function</span> ($) {</span><br><span class="line">    //    methods</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">myFunc</span></span>(){};</span><br><span class="line"></span><br><span class="line">    //    exposed public method</span><br><span class="line">    <span class="built_in">return</span> myFunc;</span><br><span class="line">}));</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/15/JS下拉列表/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JS下拉列表
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/13/JS面向对象的理解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于原型的JavaScript面向对象编程总结</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="关于CMD与AMD" data-title="关于CMD与AMD" data-url="http://github.com/justedream/2016/06/15/关于CMD与AMD/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 justedream
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JS参数与垃圾回收 | justedream</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x4E00;&amp;#x53E5;&amp;#x8BDD;&amp;#x5C31;&amp;#x662F; &amp;#x53C2;&amp;#x6570;&amp;#x4F60;&amp;#x53EF;&amp;#x4EE5;&amp;#x7406;&amp;#x89E3;&amp;#x4E3A;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&amp;#x5728;&amp;#x51FD;&amp;#x6570;&amp;#x5185;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS参数与垃圾回收">
+<meta property="og:url" content="http://github.com/justedream/2016/06/15/JS参数与垃圾回收/index.html">
+<meta property="og:site_name" content="justedream">
+<meta property="og:description" content="&amp;#x4E00;&amp;#x53E5;&amp;#x8BDD;&amp;#x5C31;&amp;#x662F; &amp;#x53C2;&amp;#x6570;&amp;#x4F60;&amp;#x53EF;&amp;#x4EE5;&amp;#x7406;&amp;#x89E3;&amp;#x4E3A;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&amp;#x5728;&amp;#x51FD;&amp;#x6570;&amp;#x5185;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2">
+<meta property="og:updated_time" content="2016-06-15T03:02:14.529Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS参数与垃圾回收">
+<meta name="twitter:description" content="&amp;#x4E00;&amp;#x53E5;&amp;#x8BDD;&amp;#x5C31;&amp;#x662F; &amp;#x53C2;&amp;#x6570;&amp;#x4F60;&amp;#x53EF;&amp;#x4EE5;&amp;#x7406;&amp;#x89E3;&amp;#x4E3A;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&amp;#x5728;&amp;#x51FD;&amp;#x6570;&amp;#x5185;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2">
+  
+    <link rel="alternative" href="/atom.xml" title="justedream" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://p3.fx.kgimg.com/v2/fxuserlogo/T1vsEsBjLQ1RCvBVdK.jpg_200x200.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">justedream</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">竹杖芒鞋轻胜马</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/justedream" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="javascript:;" title="rss">rss</a>
+					        
+								<a class="google" target="_blank" href="javascript:;" title="google">google</a>
+					        
+								<a class="twitter" target="_blank" href="javascript:;" title="twitter">twitter</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Arithmetic-DataStructure/" style="font-size: 10px;">Arithmetic DataStructure</a> <a href="/tags/EventBubbling/" style="font-size: 10px;">EventBubbling</a> <a href="/tags/FE技巧/" style="font-size: 10px;">FE技巧</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/ajax跨域/" style="font-size: 10px;">ajax跨域</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/文章/" style="font-size: 10px;">文章</a> <a href="/tags/架构/" style="font-size: 10px;">架构</a> <a href="/tags/电商/" style="font-size: 10px;">电商</a> <a href="/tags/网站资源/" style="font-size: 10px;">网站资源</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">毕业于重庆邮电大学，目前是一名前端开发工程师，擅长JavaScript、HTML5/CSS3。专注前端，略懂后端。Linux和JavaScript爱好者。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">justedream</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://p3.fx.kgimg.com/v2/fxuserlogo/T1vsEsBjLQ1RCvBVdK.jpg_200x200.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">justedream</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">竹杖芒鞋轻胜马</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/justedream" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="javascript:;" title="rss">rss</a>
+			        
+						<a class="google" target="_blank" href="javascript:;" title="google">google</a>
+			        
+						<a class="twitter" target="_blank" href="javascript:;" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JS参数与垃圾回收" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS参数与垃圾回收
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> &#x4E00;&#x53E5;&#x8BDD;&#x5C31;&#x662F; &#x53C2;&#x6570;&#x4F60;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x76F8;&#x5F53;&#x4E8E;&#x5728;&#x51FD;&#x6570;&#x5185;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x5B9E;&#x53C2;&#x8D4B;&#x503C;&#x7ED9;&#x5B83;&#x3002;<br>&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x8FDE;&#x5BF9;&#x8C61;&#x90FD;&#x662F;&#x8D4B;&#x503C;&#x8FC7;&#x53BB;&#x7684;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x5F15;&#x7528;&#x8FC7;&#x53BB;&#x7684;&#x3002;&#x76F4;&#x63A5;&#x4E0A;&#x4EE3;&#x7801;&#x3002;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="built_in">test</span>(num) { num += 10; <span class="built_in">return</span> num;}</span><br><span class="line">var num = 10;</span><br><span class="line">var res = <span class="built_in">test</span>(num);console.log(num); //10 &#x5916;&#x90E8;&#x53D8;&#x91CF;&#x5E76;&#x672A;&#x53D7;&#x5230;&#x5F71;&#x54CD;</span><br><span class="line">console.log(res); //20</span><br><span class="line">&#x4E0B;&#x9762;&#x5BF9;&#x8C61;&#x4E0D;&#x597D;&#x7406;&#x89E3;&#xFF1A;</span><br><span class="line"><span class="keyword">function</span> <span class="built_in">set</span>Name(obj) {</span><br><span class="line">    obj.name = <span class="string">&quot;James&quot;</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">var person = new Object();</span><br><span class="line">person.name = <span class="string">&quot;Jeremy&quot;</span>;</span><br><span class="line"><span class="built_in">set</span>Name(person);</span><br><span class="line">console.log(person.name);//James &#x5F71;&#x54CD;&#x5230;&#x4E86;&#x5916;&#x90E8;&#x5F15;&#x7528;&#x53D8;&#x91CF;</span><br></pre></td></tr></table></figure></p>
+<p>&#x4E4D;&#x4E00;&#x770B;&#xFF0C;&#x8FD9;&#x4E0D;&#x5C31;&#x662F;&#x6309;&#x5F15;&#x7528;&#x4F20;&#x9012;&#x5417;&#xFF1F;&#x600E;&#x4E48;&#x4F1A;&#x662F;&#x6309;&#x503C;&#x4F20;&#x9012;&#x5462;&#xFF1F;&#x4E4B;&#x6240;&#x4EE5;&#x662F;&#x6309;&#x503C;&#x4F20;&#x9012;&#x662F;&#x56E0;&#x4E3A;&#x5F53;&#x8C03;&#x7528;setName(person)&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x628A;person&#x6240;&#x6307;&#x5411;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x8FDB;&#x884C;&#x4E86;&#x590D;&#x5236;&#xFF0C;&#x7136;&#x540E;&#x4F20;&#x9012;&#x7ED9;&#x4E86;setName&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x6837;&#x5728;&#x51FD;&#x6570;setName&#x5185;&#x90E8;&#x5BF9;&#x6B64;&#x5F15;&#x7528;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x65F6;&#x5019;&#x662F;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x6B64;&#x5F15;&#x7528;&#x6240;&#x6307;&#x5411;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5373;&#x5916;&#x90E8;person&#x6240;&#x6307;&#x5411;&#x7684;&#x5BF9;&#x8C61;&#x3002;<br><a id="more"></a><br>&#x603B;&#x7684;&#x6765;&#x8BF4;&#xFF0C;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x590D;&#x5236;&#x7684;&#x662F;&#x5177;&#x4F53;&#x7684;&#x503C;&#xFF0C;&#x800C;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x590D;&#x5236;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x5F15;&#x7528;&#x53D8;&#x91CF;&#x5B58;&#x50A8;&#x7684;&#x5BF9;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x8FDB;&#x4E00;&#x6B65;&#x8BC1;&#x660E;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x662F;&#x6309;&#x503C;&#x4F20;&#x9012;&#x800C;&#x4E0D;&#x662F;&#x6309;&#x5F15;&#x7528;&#x4F20;&#x9012;&#x7684;&#xFF0C;&#x8BF7;&#x770B;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="built_in">set</span>Name(obj) {</span><br><span class="line">    obj.name = <span class="string">&quot;James&quot;</span>;</span><br><span class="line">    obj = new Object();</span><br><span class="line">    obj.name = <span class="string">&quot;dian&quot;</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">var person = new Object();</span><br><span class="line">person.name = <span class="string">&quot;Jimmy&quot;</span>;</span><br><span class="line"><span class="built_in">set</span>Name(person);</span><br><span class="line">console.log(person.name);//James</span><br></pre></td></tr></table></figure></p>
+<p>&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x8F93;&#x51FA;&#x7684;&#x662F;James&#xFF0C;&#x5982;&#x679C;&#x662F;&#x6309;&#x5F15;&#x7528;&#x4F20;&#x9012;&#xFF0C;&#x90A3;&#x4E48;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x8F93;&#x51FA;&#x7684;&#x662F;dian&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x5F53;&#x6267;&#x884C;obj.name = &#x201C;James&#x201D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F15;&#x7528;&#x6240;&#x6307;&#x5411;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x503C;&#x5DF2;&#x7ECF;&#x53D1;&#x751F;&#x4E86;&#x6539;&#x53D8;&#xFF0C;&#x5F53;&#x5728;&#x5BF9;obj&#x8FDB;&#x884C;&#x8986;&#x76D6;&#x7684;&#x65F6;&#x5019;&#xFF0C;obj&#x7684;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x5C40;&#x90E8;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x5F15;&#x7528;&#x65E0;&#x6CD5;&#x5BF9;&#x5916;&#x90E8;&#x7684;&#x5BF9;&#x8C61;&#x4EA7;&#x751F;&#x5F71;&#x54CD;&#xFF0C;&#x5E76;&#x4E14;&#x6B64;&#x5BF9;&#x8C61;&#x4F1A;&#x5728;&#x51FD;&#x6570;&#x6267;&#x884C;&#x7ED3;&#x675F;&#x4E4B;&#x540E;&#x9500;&#x6BC1;&#x3002;</p>
+<p>&#x8BF4;&#x8BF4;&#x5783;&#x573E;&#x56DE;&#x6536;&#xFF1A;&#x95ED;&#x5305;&#x662F;&#x6700;&#x5BB9;&#x6613;&#x5F15;&#x8D77;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x7684;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5C0F;&#x4F8B;&#x5B50;&#x3002;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">window.onload = <span class="function"><span class="title">function</span></span>(){</span><br><span class="line">    var el = document.getElementById(<span class="string">&quot;id&quot;</span>);</span><br><span class="line">    el.onclick = <span class="function"><span class="title">function</span></span>(){</span><br><span class="line">        alert(el.id);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x5B50;&#x51FD;&#x6570;&#x4F7F;&#x7528;&#x5916;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x4F46;&#x662F;&#x4E00;&#x76F4;&#x6CA1;&#x6709;&#x91CA;&#x653E;&#xFF0C;&#x4F1A;&#x9020;&#x6210;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">window.onload = <span class="function"><span class="title">function</span></span>(){</span><br><span class="line">    var el = document.getElementById(<span class="string">&quot;id&quot;</span>);</span><br><span class="line">    var id = el.id; //&#x89E3;&#x9664;&#x5FAA;&#x73AF;&#x5F15;&#x7528;</span><br><span class="line">    el.onclick = <span class="function"><span class="title">function</span></span>(){</span><br><span class="line">        alert(id);</span><br><span class="line">    }</span><br><span class="line">    el = null; // &#x5C06;&#x95ED;&#x5305;&#x5F15;&#x7528;&#x7684;&#x5916;&#x90E8;&#x51FD;&#x6570;&#x4E2D;&#x6D3B;&#x52A8;&#x5BF9;&#x8C61;&#x6E05;&#x9664;&#x3002;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/15/希尔顿离职员工说的走心的话，个人觉得每一个职场人都该看看/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          希尔顿离职员工说的走心的话，个人觉得每一个职场人都该看看
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/15/JS下拉列表/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS下拉列表</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JS参数与垃圾回收" data-title="JS参数与垃圾回收" data-url="http://github.com/justedream/2016/06/15/JS参数与垃圾回收/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 justedream
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
