@@ -72,7 +72,7 @@
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -176,6 +176,107 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-JS下拉列表" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/15/JS下拉列表/">JS下拉列表</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.&#x5224;&#x65AD;select&#x9009;&#x9879;&#x4E2D; &#x662F;&#x5426;&#x5B58;&#x5728;Value=&#x201D;paraValue&#x201D;&#x7684;Item<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> jsSelectIsExitItem(objSelect, objItemValue) {</span><br><span class="line">    var isExit = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (var i = 0; i &lt; objSelect.options.length; i++) {</span><br><span class="line">        <span class="keyword">if</span> (objSelect.options[i].value == objItemValue) {</span><br><span class="line">            isExit = <span class="literal">true</span>;</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">return</span> isExit;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>2.&#x5411;select&#x9009;&#x9879;&#x4E2D; &#x52A0;&#x5165;&#x4E00;&#x4E2A;Item<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> jsAddItemToSelect(objSelect, objItemText, objItemValue) {</span><br><span class="line">    //&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;</span><br><span class="line">    <span class="keyword">if</span> (jsSelectIsExitItem(objSelect, objItemValue)) {</span><br><span class="line">        alert(<span class="string">&quot;&#x8BE5;Item&#x7684;Value&#x503C;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&quot;</span>);</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        var varItem = new Option(objItemText, objItemValue);</span><br><span class="line">        objSelect.options.add(varItem);</span><br><span class="line">        alert(<span class="string">&quot;&#x6210;&#x529F;&#x52A0;&#x5165;&quot;</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/06/15/JS下拉列表/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-关于CMD与AMD" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/15/关于CMD与AMD/">关于CMD与AMD</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x5E73;&#x65F6;&#x5DE5;&#x4F5C;&#x4E2D;&#x5904;&#x7406;&#x6A21;&#x5757;&#x5316;&#x7684;&#x65B9;&#x5F0F;&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x79CD;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//1.&#x5C01;&#x95ED;&#x7A7A;&#x95F4;&#xFF0C;&#x4E5F;&#x53EB;&#x533F;&#x540D;&#x51FD;&#x6570;&#x81EA;&#x6267;&#x884C;&#x6216;&#x8005;IIFE</span><br><span class="line">(<span class="function"><span class="title">function</span></span>(){</span><br><span class="line">    var gf = <span class="string">&apos;ada wong&apos;</span>;</span><br><span class="line">})();</span><br><span class="line">alert(gf);</span><br><span class="line"></span><br><span class="line">//2.&#x7C7B;&#x4F3C;jquery&#x65B9;&#x5F0F;&#xFF0C;&#x5168;&#x5C40;&#x5BFC;&#x5165;</span><br><span class="line">var gf = {};</span><br><span class="line">(<span class="keyword">function</span>(myGirl){</span><br><span class="line">    myGirl.name = <span class="string">&apos;ada wong&apos;</span>;</span><br><span class="line">    var kiss = <span class="function"><span class="title">function</span></span>(){</span><br><span class="line">        alert(<span class="string">&apos;kiss me&apos;</span>);</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    myGirl.getName = <span class="function"><span class="title">function</span></span>(){</span><br><span class="line">        <span class="built_in">return</span> myGirl.name;</span><br><span class="line">    };</span><br><span class="line">    <span class="built_in">return</span> myGirl;</span><br><span class="line">})(gf);</span><br><span class="line"></span><br><span class="line">alert(gf.getName());</span><br><span class="line">alert(gf.kiss());//&#x53EA;&#x6709;&#x81EA;&#x5DF1;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x7684;kiss&#x65B9;&#x6CD5;</span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/06/15/关于CMD与AMD/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-JS面向对象的理解" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -350,114 +451,9 @@
 
 
   
-    <article id="post-数组去重" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/19/数组去重/">去重的一些方法总结(数组,二维,对象去重方式)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Array-reduce&#x65B9;&#x6CD5;&#x53BB;&#x91CD;"><a href="#Array-reduce&#x65B9;&#x6CD5;&#x53BB;&#x91CD;" class="headerlink" title="Array reduce&#x65B9;&#x6CD5;&#x53BB;&#x91CD;"></a>Array reduce&#x65B9;&#x6CD5;&#x53BB;&#x91CD;</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 7, 7, 1, <span class="string">&apos;1&apos;</span>,3, 5, 3, <span class="string">&apos;3&apos;</span>, <span class="string">&apos;5&apos;</span>];</span><br><span class="line">    var uniqArray = <span class="keyword">function</span>(a) {</span><br><span class="line">        <span class="built_in">return</span> a.reduce(<span class="keyword">function</span>(p, c) {</span><br><span class="line">            console.log(p);</span><br><span class="line">            <span class="keyword">if</span> (p.indexOf(c) &lt; 0)</span><br><span class="line">            {</span><br><span class="line">                p.push(c);</span><br><span class="line">            }</span><br><span class="line">            <span class="built_in">return</span> p;</span><br><span class="line">        }, []);</span><br><span class="line">    };</span><br><span class="line">document.write(uniqArray(arr));</span><br></pre></td></tr></table></figure>
-<h1 id="json&#x53BB;&#x91CD;"><a href="#json&#x53BB;&#x91CD;" class="headerlink" title="json&#x53BB;&#x91CD;"></a>json&#x53BB;&#x91CD;</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var arr2 = [];</span><br><span class="line">var json = {};</span><br><span class="line"><span class="keyword">for</span>(var i = 0;i&lt;arr.length;i++){</span><br><span class="line">    <span class="keyword">if</span>(!json[arr[i]]){</span><br><span class="line">        arr2.push(arr[i]);</span><br><span class="line">        json[arr[i]] = arr[i];</span><br><span class="line">        console.log(json);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">document.write(arr);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/19/数组去重/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-二维数组扁平化--reduce方法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/19/二维数组扁平化--reduce方法/">ES5 Array reduce方法的实现和使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (typeof Array.prototype.reduce != <span class="string">&quot;function&quot;</span>) {</span><br><span class="line">    Array.prototype.reduce = <span class="keyword">function</span> (callback, initialValue ) {</span><br><span class="line">        var previous = initialValue,</span><br><span class="line">            k = 0,</span><br><span class="line">            length = this.length;</span><br><span class="line">        <span class="keyword">if</span> (typeof initialValue === <span class="string">&quot;undefined&quot;</span>) {</span><br><span class="line">            previous = this[0];</span><br><span class="line">            k = 1;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (typeof callback === <span class="string">&quot;function&quot;</span>) {</span><br><span class="line">            <span class="keyword">for</span> (k; k &lt; length; k++) {</span><br><span class="line">                this.hasOwnProperty(k) &amp;&amp; (previous = callback(previous, this[k], k, this));</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="built_in">return</span> previous;</span><br><span class="line">    };</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">var sum = [1, 2, 3, 4].reduce(<span class="keyword">function</span> (previous, current, index, array) {</span><br><span class="line">  <span class="built_in">return</span> previous + current;</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">document.write(sum+<span class="string">&apos;&lt;/br&gt;&apos;</span>); //10</span><br><span class="line">var matrix = [</span><br><span class="line">  [1, 2],</span><br><span class="line">  [3, 4],</span><br><span class="line">  [5, 6]</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">// &#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x6241;&#x5E73;&#x5316;</span><br><span class="line">var flatten = matrix.reduce(<span class="keyword">function</span> (previous, current) {</span><br><span class="line">  <span class="built_in">return</span> previous.concat(current);</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">document.write(flatten); // [1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>
